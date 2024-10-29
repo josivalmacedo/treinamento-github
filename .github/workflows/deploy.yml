@@ -1,0 +1,23 @@
+name: Deploy React to VPS
+
+on:
+  push:
+    branches:
+      - main # Branch que dispara o deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16" # Certifique-se que seja compatível com o projeto
+
+      - name: Install dependencies and build
+        run: |
+          node --version
